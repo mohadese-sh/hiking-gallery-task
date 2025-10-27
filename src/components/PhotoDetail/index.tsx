@@ -5,7 +5,7 @@ const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
   return (
     <div className="w-full flex flex-col items-center justify-center text-center space-y-4">
       <h2 className="text-lg font-semibold">
-        {photoDetail.alt_description || "hiking image"}
+        {photoDetail.description || "hiking image"}
       </h2>
       <p className="text-sm text-gray-600">By {photoDetail.user.name}</p>
       <Image
@@ -15,6 +15,9 @@ const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
         width={400}
         height={300}
         priority
+        style={{ objectFit: "contain" }}
+        placeholder="blur"
+        blurDataURL={photoDetail.urls.thumb}
       />
     </div>
   );

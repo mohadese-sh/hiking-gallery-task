@@ -1,6 +1,3 @@
-"use client";
-
-import { Suspense } from "react";
 import { TModalProps } from "./types";
 import CloseButton from "./CloseButton";
 
@@ -13,19 +10,7 @@ const Modal = ({ children }: TModalProps) => {
           <CloseButton />
         </div>
 
-        <Suspense
-          fallback={
-            <div className="text-center py-10 h-[50vh] w-full bg-gray-300 animate-pulse rounded-md">
-              <div className="animate-pulse">
-                <div className="w-full h-[300px] max-h-[60vh] bg-gray-200 rounded-md mb-4" />
-                <div className="h-6 bg-gray-200 rounded w-3/4 mb-2" />
-                <div className="h-4 bg-gray-200 rounded w-1/2" />
-              </div>
-            </div>
-          }
-        >
-          <div className="overflow-auto max-h-[80vh]">{children}</div>
-        </Suspense>
+        <div className="overflow-auto max-h-[80vh]">{children}</div>
       </div>
     </div>
   );
