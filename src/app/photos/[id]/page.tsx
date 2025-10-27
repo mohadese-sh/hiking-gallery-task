@@ -1,5 +1,6 @@
 import PhotoDetail from "@/components/PhotoDetail";
-import { photos } from "@/libraries/fetchPhotos";
+import { getPhoto } from "@/libraries/fetchPhotos";
+import { IPhoto } from "@/types.ts/IPhoto";
 import { notFound } from "next/navigation";
 
 export type PhotoPageProps = Readonly<{
@@ -7,12 +8,12 @@ export type PhotoPageProps = Readonly<{
 }>;
 
 export default async function PhotoPage({ params }: PhotoPageProps) {
-  const photoDetail = photos?.filter((photo) => photo?.id == params?.id)?.[0];
+  const photoDetail: IPhoto = await getPhoto({ id: params.id });
   if (!photoDetail) {
     notFound();
   }
   return (
-    <div className="container">
+    <div className="flex flex-col items-center justify-center text-center p-1">
       <PhotoDetail photoDetail={photoDetail} />
     </div>
   );

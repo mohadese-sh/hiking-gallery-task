@@ -3,19 +3,19 @@ import { TPhotoDetailProps } from "./types";
 
 const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
   return (
-    <div className="h-[50vh] w-full">
+    <div className="w-full flex flex-col items-center justify-center text-center space-y-4">
+      <h2 className="text-lg font-semibold">
+        {photoDetail.alt_description || "hiking image"}
+      </h2>
+      <p className="text-sm text-gray-600">By {photoDetail.user.name}</p>
       <Image
-        src={photoDetail.urls.regular}
+        src={photoDetail.urls.full}
         alt={photoDetail.alt_description || ""}
-        className="rounded-md object-contain w-full h-full"
+        className="rounded-2xl object-contain shadow-md h-fit w-fit"
         width={400}
         height={300}
         priority
       />
-      <h2 className="text-lg mt-3 font-semibold">
-        {photoDetail.alt_description || "Untitled"}
-      </h2>
-      <p className="text-sm text-gray-600 mt-1">By {photoDetail.user.name}</p>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { fetchPhotos, photos } from "@/libraries/fetchPhotos";
+import { getPhotos } from "@/libraries/fetchPhotos";
 import { IPhoto } from "@/types.ts/IPhoto";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export const metadata = {
   },
 };
 export default async function PhotosPage() {
-  // const photos = await fetchPhotos({ query: "hiking", perPage: 12 });
+  const photos = await getPhotos({ query: "hiking", perPage: 12 });
 
   return (
     <main className="p-1 columns-2 md:columns-3 gap-0">
@@ -29,7 +29,7 @@ export default async function PhotosPage() {
           className="m-1 break-inside-avoid rounded-lg block overflow-hidden"
         >
           <Image
-            src={photo.urls.regular}
+            src={photo.urls.small}
             alt={photo.alt_description || "Hiking"}
             className="w-full object-cover rounded-lg"
             width={400}

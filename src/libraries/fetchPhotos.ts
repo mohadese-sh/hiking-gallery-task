@@ -22,7 +22,7 @@ async function fetchFromUnsplash<T>(
   return data;
 }
 
-export async function fetchPhotos({
+export async function getPhotos({
   query,
   perPage = 12,
 }: {
@@ -37,25 +37,6 @@ export async function fetchPhotos({
   ).then((data) => data.results);
 }
 
-export async function fetchPhotoDetail({ id }: { id: string }) {
+export async function getPhoto({ id }: { id: string }) {
   return fetchFromUnsplash<IPhoto>(`/photos/${id}`);
 }
-
-export const photos: IPhoto[] = [
-  {
-    id: "1223",
-    alt_description: "lskjelksej",
-    width: 0,
-    height: 0,
-    urls: {
-      small: "/1.png",
-      full: "/1.png",
-      regular: "/1.png",
-      thumb: "/1.png",
-    },
-    user: {
-      name: "hasan",
-      portfolio_url: "@gmail",
-    },
-  },
-];
