@@ -4,10 +4,12 @@ import { TPhotoDetailProps } from "./types";
 const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
   return (
     <div className="w-full flex flex-col items-center justify-center text-center space-y-4">
-      <h2 className="text-lg font-semibold">
+      <h2 className="text-lg font-semibold text-blue-950 dark:text-gray-50">
         {photoDetail.description || "hiking image"}
       </h2>
-      <p className="text-sm text-gray-600">By {photoDetail.user.name}</p>
+      <p className="text-sm text-blue-950 dark:text-gray-50">
+        By {photoDetail.user.name}
+      </p>
       <Image
         src={photoDetail.urls.full}
         alt={photoDetail.alt_description || ""}
