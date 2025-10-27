@@ -17,10 +17,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${sansRounded.className} ${geistMono.className}`}
     >
-      <body className="font-sans bg-gray-50 dark:bg-blue-950 text-blue-950 antialiased min-h-screen">
-        <header className="bg-blue-950 dark:bg-gray-50 text-gray-50 dark:text-blue-950 shadow-md py-4 px-6 flex justify-between sm:flex-row sm:items-center gap-x-4">
+      <body className="font-sans bg-gray-50 dark:bg-blue-950 text-blue-950 transition-colors duration-500 ease-in-out antialiased min-h-screen">
+        <header className="bg-blue-950 dark:bg-gray-50 text-gray-50 dark:text-blue-950 shadow-md py-4 px-6 flex justify-between sm:flex-row sm:items-center gap-x-4 transition-colors duration-500 ease-in-out">
           <h1 className="text-2xl font-bold mb-2 sm:mb-0">
-            <Link href={'/'}>Hiking Gallery</Link>
+            <Link href="/">Hiking Gallery</Link>
           </h1>
           <ThemeToggle />
         </header>
