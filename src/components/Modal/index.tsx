@@ -1,5 +1,5 @@
-import { TModalProps } from "./types";
-import CloseButton from "./CloseButton";
+import { TModalProps } from './types'
+import CloseButton from './CloseButton'
 
 const Modal = ({ children }: TModalProps) => {
   return (
@@ -13,7 +13,7 @@ const Modal = ({ children }: TModalProps) => {
         <div className="overflow-auto max-h-[80vh]">{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

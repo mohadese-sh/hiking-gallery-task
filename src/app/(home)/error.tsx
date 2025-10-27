@@ -1,25 +1,19 @@
-"use client";
-
-import { useEffect } from "react";
+'use client'
 
 export default function Error({
   error,
   reset,
 }: {
-  error: Error;
-  reset: () => void;
+  error: Error
+  reset: () => void
 }) {
-  useEffect(() => {
-    console.error("Client Error:", error);
-  }, [error]);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] text-center px-4">
       <h2 className="text-2xl font-semibold text-red-600 mb-4">
         Oops! Something went wrong 😢
       </h2>
       <p className="text-gray-600 mb-6">
-        {error.message || "An unexpected error occurred. Please try again."}
+        {error.message || 'An unexpected error occurred. Please try again.'}
       </p>
       <div className="flex gap-3">
         <button
@@ -30,5 +24,5 @@ export default function Error({
         </button>
       </div>
     </div>
-  );
+  )
 }

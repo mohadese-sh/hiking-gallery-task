@@ -1,5 +1,5 @@
-import { IPhoto } from "@/types.ts/IPhoto";
+import { IPhoto } from '@/types.ts/IPhoto'
 
 export type TPhotoDetailProps = {
-  photoDetail: IPhoto;
-};
+  photoDetail: IPhoto
+}

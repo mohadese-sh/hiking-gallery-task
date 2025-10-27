@@ -1,6 +1,6 @@
-import { IPhoto } from "@/types.ts/IPhoto";
+import { IPhoto } from '@/types.ts/IPhoto'
 
-const BASE_URL = "https://api.unsplash.com";
+const BASE_URL = 'https://api.unsplash.com'
 
 async function fetchFromUnsplash<T>(
   endpoint: string,
@@ -12,31 +12,31 @@ async function fetchFromUnsplash<T>(
       ...(options.headers || {}),
     },
     ...options,
-  });
+  })
 
   if (!res.ok) {
     throw new Error(
       `Unsplash listing API error: ${res.status} ${res.statusText}`
-    );
+    )
   }
 
-  const data: T = await res.json();
-  return data;
+  const data: T = await res.json()
+  return data
 }
 
 export async function getPhotos({
   query,
   perPage = 12,
 }: {
-  query: string;
-  perPage: number;
+  query: string
+  perPage: number
 }) {
   return fetchFromUnsplash<{ results: IPhoto[] }>(
     `/search/photos?query=${query}&per_page=${perPage}`,
     {
       next: { revalidate: 0 },
     }
-  ).then((data) => data.results);
+  ).then((data) => data.results)
 }
 
 export async function getPhoto({ id }: { id: string }) {
@@ -45,6 +45,6 @@ export async function getPhoto({ id }: { id: string }) {
     .catch((error) => {
       throw new Error(
         `Unsplash listing API error: ${error.status} ${error.statusText}`
-      );
-    });
+      )
+    })
 }

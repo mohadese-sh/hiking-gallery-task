@@ -1,8 +1,8 @@
-"use client";
-import { useRouter } from "next/navigation";
+'use client'
+import { useRouter } from 'next/navigation'
 
 export default function CloseButton() {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <span
@@ -11,5 +11,5 @@ export default function CloseButton() {
     >
       Close
     </span>
-  );
+  )
 }

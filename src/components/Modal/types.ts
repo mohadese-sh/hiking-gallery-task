@@ -1,3 +1,3 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
-export type TModalProps = { children: ReactNode };
+export type TModalProps = { children: ReactNode }

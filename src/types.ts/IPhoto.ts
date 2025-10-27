@@ -1,18 +1,18 @@
 export interface IPhoto {
-  id: string;
-  description: string | null;
-  alt_description: string | null;
-  width: number;
-  height: number;
+  id: string
+  description: string | null
+  alt_description: string | null
+  width: number
+  height: number
 
   urls: {
-    small: string;
-    full: string;
-    regular: string;
-    thumb: string;
-  };
+    small: string
+    full: string
+    regular: string
+    thumb: string
+  }
   user: {
-    name: string;
-    portfolio_url: string | null;
-  };
+    name: string
+    portfolio_url: string | null
+  }
 }

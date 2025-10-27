@@ -1,10 +1,10 @@
-import type { PropsWithChildren, ReactNode } from "react";
+import type { PropsWithChildren, ReactNode } from 'react'
 
 export type HomeLayoutProps = Readonly<
   PropsWithChildren<{
-    modals: ReactNode;
+    modals: ReactNode
   }>
->;
+>
 
 export default function HomeLayout({ children, modals }: HomeLayoutProps) {
   return (
@@ -12,5 +12,5 @@ export default function HomeLayout({ children, modals }: HomeLayoutProps) {
       {children}
       {modals}
     </>
-  );
+  )
 }
