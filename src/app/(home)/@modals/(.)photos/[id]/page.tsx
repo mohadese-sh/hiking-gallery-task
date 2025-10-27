@@ -2,14 +2,20 @@ import Modal from "@/components/Modal";
 import PhotoDetail from "@/components/PhotoDetail";
 import { getPhoto } from "@/libraries/fetchPhotos";
 import { IPhoto } from "@/types.ts/IPhoto";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type TPhotoProps = {
-  params: { id: string };
+  params: Promise<{
+    id: string;
+  }>;
 };
 
-export async function generateMetadata({ params }: TPhotoProps) {
-  const photo: IPhoto = await getPhoto({ id: params.id });
+export async function generateMetadata({
+  params,
+}: TPhotoProps): Promise<Metadata> {
+  const { id } = await params;
+  const photo: IPhoto = await getPhoto({ id });
 
   if (!photo) {
     return {
@@ -37,7 +43,8 @@ export async function generateMetadata({ params }: TPhotoProps) {
 }
 
 export default async function PhotoModal({ params }: TPhotoProps) {
-  const photoDetail: IPhoto = await getPhoto({ id: params.id });
+  const { id } = await params;
+  const photoDetail: IPhoto = await getPhoto({ id });
 
   if (!photoDetail) return notFound();
 
