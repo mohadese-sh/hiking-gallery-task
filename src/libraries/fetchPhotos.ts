@@ -15,7 +15,9 @@ async function fetchFromUnsplash<T>(
   });
 
   if (!res.ok) {
-    throw new Error(`Unsplash API error: ${res.status} ${res.statusText}`);
+    throw new Error(
+      `Unsplash listing API error: ${res.status} ${res.statusText}`
+    );
   }
 
   const data: T = await res.json();
@@ -38,5 +40,11 @@ export async function getPhotos({
 }
 
 export async function getPhoto({ id }: { id: string }) {
-  return fetchFromUnsplash<IPhoto>(`/photos/${id}`);
+  return fetchFromUnsplash<IPhoto>(`/photos/${id}`)
+    .then((response) => response)
+    .catch((error) => {
+      throw new Error(
+        `Unsplash listing API error: ${error.status} ${error.statusText}`
+      );
+    });
 }

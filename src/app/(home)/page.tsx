@@ -1,11 +1,12 @@
 import { getPhotos } from "@/libraries/fetchPhotos";
 import { IPhoto } from "@/types.ts/IPhoto";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Hiking Photos Gallery - Explore Nature's Beauty",
   description:
     "Discover a curated collection of breathtaking hiking photos, from mountains and forests to lakes and trails. Dive into the world of outdoor adventures.",
