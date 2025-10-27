@@ -12,7 +12,11 @@ const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
       </p>
       <Image
         src={photoDetail.urls.full}
-        alt={photoDetail.alt_description || ''}
+        alt={
+          photoDetail.alt_description ||
+          photoDetail?.description ||
+          'hicking image'
+        }
         className="rounded-2xl object-contain"
         width={photoDetail.width}
         height={photoDetail.height}
