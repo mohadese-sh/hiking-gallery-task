@@ -3,7 +3,7 @@ import { TPhotoDetailProps } from "./types";
 
 const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
   return (
-    <div className="w-full flex flex-col items-center justify-center text-center space-y-4">
+    <div className="w-full h-full flex flex-col items-center justify-center text-center space-y-4">
       <h2 className="text-lg font-semibold text-blue-950 dark:text-gray-50">
         {photoDetail.description || "hiking image"}
       </h2>
@@ -13,11 +13,11 @@ const PhotoDetail = ({ photoDetail }: TPhotoDetailProps) => {
       <Image
         src={photoDetail.urls.full}
         alt={photoDetail.alt_description || ""}
-        className="rounded-2xl object-contain shadow-md h-fit w-fit"
-        width={400}
-        height={300}
+        className="rounded-2xl object-contain"
+        width={photoDetail.width}
+        height={photoDetail.height}
         priority
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: "contain", maxHeight: "80vh" }}
         placeholder="blur"
         blurDataURL={photoDetail.urls.thumb}
       />

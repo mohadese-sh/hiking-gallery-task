@@ -49,7 +49,7 @@ export default async function PhotoPage({ params }: PhotoPageProps) {
     notFound();
   }
   return (
-    <div className="flex flex-col items-center justify-center text-center p-1 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="flex flex-col items-center justify-center text-center p-1 text-gray-900 dark:text-gray-100">
       <PhotoDetail photoDetail={photoDetail} />
     </div>
   );
