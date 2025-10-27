@@ -3,5 +3,5 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  font-family: sans-serif;
+  font-family: var(--font-sans-rounded), sans-serif;
 }
